@@ -49,15 +49,26 @@
     }
 
     /* 🔠 Logo */
-    .logo {
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 1001;
+    }
+
+    .logo-img {
+      width: 77px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .logo-text {
       color: white;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: bold;
       font-family: 'Ubuntu', sans-serif;
       text-transform: uppercase;
       letter-spacing: 1px;
-      z-index: 1001;
-      flex-shrink: 0;
     }
 
     /* 🔗 Menu Navigasi */
@@ -75,12 +86,13 @@
     .nav-link {
       color: white !important;
       font-family: 'Ubuntu', sans-serif;
-      font-size: 13px;
+      font-size: 16px;
       text-transform: capitalize;
       transition: all 0.2s ease-in-out;
       text-decoration: none;
       display: block;
       padding: 5px 0;
+      border-bottom: 2px solid transparent;
     }
 
     .nav-link:hover {
@@ -1047,39 +1059,7 @@
 <body>
 
   <!-- Overlay untuk mobile menu -->
-  <div class="overlay" id="overlay"></div>
-
-  <!-- 🔹 Navbar -->
-  <nav class="custom-navbar" role="navigation" aria-label="Main navigation">
-    <!-- Logo -->
-    <div class="logo">klug</div>
-
-    <!-- Hamburger Menu Button -->
-    <button class="hamburger" id="hamburger" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Menu Navigasi -->
-  <ul class="nav" id="navMenu" role="menu" aria-hidden="true">
-    <li class="nav-item"><a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a></li>
-    <li class="nav-item"><a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a></li>
-    <li class="nav-item"><a class="nav-link  {{ Request::is('layanan') ? 'active' : '' }}" href="{{ route('layanan') }}">Layanan Kami</a></li>
-    <li class="nav-item"><a class="nav-link active" href="{{ route('artikel') }}">Artikel</a></li>
-    <li class="nav-item"><a class="nav-link {{ Request::is('hubungi') ? 'active' : '' }}" href="{{ route('hubungi') }}">Hubungi Kami</a></li>>
-    </ul>
-
-    <!-- 🔍 Pencarian + Tombol -->
-  <div class="navbar-right">
-      <!-- Search Bar dengan Material Icons -->
-      <div class="search-wrapper">
-        <span class="material-icons search-icon">search</span>
-        <input type="text" class="search-input" placeholder="Ketik pencarian">
-      </div>
-      <button class="btn-daftar">DAFTAR ON-LINE</button>
-    </div>
-  </nav>
+   @include('pemisahan.header')
 
   <!-- Hero Section with Banner Overlay -->
   <div class="hero-section">
@@ -1212,68 +1192,9 @@
 </section>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <p class="copyright">Copyright © 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang</p>
-  </footer>
+  @include('pemisahan.footer')
   
-  <script>
-    // Hamburger menu behavior: toggle classes, manage ARIA, overlay, and keyboard interactions
-    (function() {
-      const hamburger = document.getElementById('hamburger');
-      const nav = document.getElementById('navMenu');
-      const overlay = document.getElementById('overlay');
-      const body = document.body;
 
-      function openMenu() {
-        hamburger.classList.add('active');
-        nav.classList.add('active');
-        overlay.classList.add('active');
-        body.classList.add('no-scroll');
-        hamburger.setAttribute('aria-expanded', 'true');
-        nav.setAttribute('aria-hidden', 'false');
-      }
-
-      function closeMenu() {
-        hamburger.classList.remove('active');
-        nav.classList.remove('active');
-        overlay.classList.remove('active');
-        body.classList.remove('no-scroll');
-        hamburger.setAttribute('aria-expanded', 'false');
-        nav.setAttribute('aria-hidden', 'true');
-      }
-
-      hamburger.addEventListener('click', function(e) {
-        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-        if (expanded) closeMenu(); else openMenu();
-      });
-
-      // Close when clicking overlay
-      overlay.addEventListener('click', closeMenu);
-
-      // Close menu when a nav link is clicked (improves UX on mobile)
-      nav.addEventListener('click', function(e) {
-        const target = e.target;
-        if (target.tagName === 'A' || target.closest('a')) {
-          // small delay to allow navigation to start on some browsers
-          setTimeout(closeMenu, 50);
-        }
-      });
-
-      // Close on Escape key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && nav.classList.contains('active')) {
-          closeMenu();
-        }
-      });
-
-      // Ensure menu state resets on viewport changes to desktop
-      window.addEventListener('resize', function() {
-        // When switching to a wider layout (desktop breakpoint 1340px), close mobile menu
-        if (window.innerWidth > 1340 && nav.classList.contains('active')) {
-          closeMenu();
-        }
-      });
-    })();
   </script>
 </body>
 </html>

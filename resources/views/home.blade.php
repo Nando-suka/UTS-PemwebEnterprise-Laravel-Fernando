@@ -46,16 +46,27 @@
       gap: 40px;
     }
 
-    /* 🔠 Logo */
-    .logo {
+    /* 🔠 Logo dengan teks Inaklug */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 1001;
+    }
+
+    .logo-img {
+      width: 77px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .logo-text {
       color: white;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: bold;
       font-family: 'Ubuntu', sans-serif;
       text-transform: uppercase;
       letter-spacing: 1px;
-      z-index: 1001;
-      flex-shrink: 0;
     }
 
     /* 🔗 Menu Navigasi */
@@ -73,7 +84,7 @@
     .nav-link {
       color: white !important;
       font-family: 'Ubuntu', sans-serif;
-      font-size: 13px;
+      font-size: 16px;
       text-transform: capitalize;
       transition: all 0.2s ease-in-out;
       text-decoration: none;
@@ -169,94 +180,159 @@
       transform: rotate(45deg) translate(-5px, -6px);
     }
 
+    /* Elemen untuk mobile */
+    .mobile-nav-actions {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .mobile-search-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .mobile-search-wrapper .search-input {
+      width: 100%;
+      padding: 12px 12px 12px 40px;
+      border: none;
+      background: transparent;
+      border-radius: 0;
+      color: white;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .mobile-search-wrapper .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 13px;
+    }
+
+    .mobile-search-wrapper .search-input:focus {
+      border-bottom: 2px solid white;
+    }
+
+    .mobile-search-wrapper .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 18px;
+    }
+
+    .mobile-btn-daftar {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      border-radius: 25px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      width: 100%;
+    }
+
+    .mobile-btn-daftar:hover {
+      background: white;
+      color: #197BD0;
+    }
+
     /* Hero Section with Overlay Banner */
     .hero-section {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
 
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit:fill;
-        }
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
 
-        .overlay {
-            position: absolute;
-            width: 621px;
-            height: 166px;
-            left: 123px;
-            top: 516px;
-        }
+    .overlay {
+      position: absolute;
+      width: 621px;
+      height: 166px;
+      left: 123px;
+      top: 516px;
+    }
 
-        .content-box {
-            position: absolute;
-            width: 621px;
-            height: 120px;
-            left: 123px;
-            top: 562px;
-            background: linear-gradient(90deg, #46074E 0%, rgba(25, 123, 208, 0.8) 100%);
-            box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            padding: 0 46px 0 46px;
-        }
+    .content-box {
+      position: absolute;
+      width: 621px;
+      height: 120px;
+      left: 123px;
+      top: 562px;
+      background: linear-gradient(90deg, #46074E 0%, rgba(25, 123, 208, 0.8) 100%);
+      box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      padding: 0 46px 0 46px;
+    }
 
-        .vertical-line {
-            position: absolute;
-            width: 1px;
-            height: 140px;
-            left: 150px;
-            top: 516px;
-            background: rgba(255, 255, 255, 0.4);
-        }
+    .vertical-line {
+      position: absolute;
+      width: 1px;
+      height: 140px;
+      left: 150px;
+      top: 516px;
+      background: rgba(255, 255, 255, 0.4);
+    }
 
-        .text-content {
-            position: absolute;
-            width: 285px;
-            height: 60px;
-            left: 169px;
-            top: 594px;
-            color: #FFFFFF;
-            font-family: 'Ubuntu', sans-serif;
-            font-size: 20px;
-            line-height: 30px;
-            text-align: left;
-        }
+    .text-content {
+      position: absolute;
+      width: 285px;
+      height: 60px;
+      left: 169px;
+      top: 594px;
+      color: #FFFFFF;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: left;
+    }
 
     /* Menu bagian button */
     .cta-button {
-            position: absolute;
-            width: 210px;
-            height: 45px;
-            left: 499px;
-            top: 600px;
-            border-radius: 22.5px;
-            border: 1px solid #FFFFFF;
-            background: transparent;
-            color: #FFFFFF;
-            font-family: 'Ubuntu', sans-serif;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
+      position: absolute;
+      width: 210px;
+      height: 45px;
+      left: 499px;
+      top: 600px;
+      border-radius: 22.5px;
+      border: 1px solid #FFFFFF;
+      background: transparent;
+      color: #FFFFFF;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
 
-        .cta-button:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
+    .cta-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
 
-        .cta-button::after {
-            content: '∨';
-            font-size: 12px;
-        }
+    .cta-button::after {
+      content: '∨';
+      font-size: 12px;
+    }
 
     /* Section Tentang Kami - flat */
     .tentang-kami-section {
@@ -312,7 +388,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #46074E 0%, rgba(25, 123, 208, 0) 100%);
+      background: linear-gradient(135deg, rgba(70,7,78,0.45) 0%, rgba(25,123,208,0.25) 100%);
       display: flex;
       align-items: flex-end;
       padding: 20px;
@@ -321,7 +397,7 @@
     /* Garis putih di sisi kiri untuk layanan cards */
     .layanan-inner-border {
       position: absolute;
-      top: 1%;
+      top: 15%;
       left: 20px;
       width: 3px;
       height: 70%;
@@ -339,7 +415,7 @@
     /* Mitra Logo */
     .mitra-logo {
       background: transparent;
-      padding: 10px 0; /* keep a little vertical spacing */
+      padding: 10px 0;
       border: none;
       border-radius: 0;
       height: 150px;
@@ -379,12 +455,12 @@
     }
 
     .banner-content p {
-      color: #FFFFFF; /* Fill Colour */
+      color: #FFFFFF;
       font-family: 'Ubuntu', sans-serif;
-      font-weight: 300; /* Ubuntu-Light */
-      font-size: 16px; /* Font Size */
-      text-align: left; /* Align left */
-      line-height: 24px; /* Line Spacing */
+      font-weight: 300;
+      font-size: 16px;
+      text-align: left;
+      line-height: 24px;
       margin: 0;
     }
 
@@ -455,49 +531,107 @@
       color: white;
     }
 
-    /* 📱 RESPONSIVE - Tablet & Mobile */
-    @media (max-width: 1100px) {
-      .custom-navbar {
-        padding: 0 40px;
-        gap: 20px;
-      }
-      
-      .navbar-right {
-        gap: 5px;
-      }
-      
-      .search-wrapper {
-        width: 200px;
-      }
-
-      .nav {
-        gap: 30px;
-      }
-
-      .hero-section {
-        height: 400px;
-      }
-
-      .hero-banner {
-        left: 20px;
-        bottom: 20px;
-        max-width: 400px;
-        padding: 15px 20px;
-      }
-
-      .hero-banner h2 {
-        font-size: 20px;
-      }
-
-      .hero-stat {
-        right: 20px;
-        bottom: 20px;
-        font-size: 16px;
-        padding: 8px 16px;
-      }
+    /* ====================== HUBUNGI KAMI SECTION ====================== */
+    .hubungi-section {
+      background: #fff;
+      padding: 80px 100px;
+      text-align: center;
+      border-top: 1px solid #eee;
     }
 
-    @media (max-width: 1337px) {
+    .hubungi-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hubungi-section p {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 28px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .hubungi-section .btn {
+      border-radius: 25px;
+      padding: 10px 35px;
+      font-weight: 500;
+      margin: 10px;
+    }
+
+    /* Button lokasi dan kirim */
+    .btn-lokasi {
+      width: 200px;
+      height: 45px;
+      background: linear-gradient(90deg, #46074E 0%, #197BD0 80%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 22.5px;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Efek hover lembut */
+    .btn-lokasi:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .btn-kirim {
+      width: 200px;
+      height: 45px;
+      border-radius: 22.5px;
+      background: transparent;
+      border: 1px solid transparent;
+      background-image: linear-gradient(white, white),
+                      linear-gradient(90deg, #46074E 0%, #197BD0 80%);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      color: #336195;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 18px;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover efek halus */
+    .btn-kirim:hover {
+      background-image: linear-gradient(90deg, #46074E 0%, #197BD0 80%);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .copyright {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* ====================== BREAKPOINT 1547px ====================== */
+    @media (max-width: 1547px) {
       .custom-navbar {
         padding: 15px 30px;
         flex-wrap: wrap;
@@ -538,15 +672,12 @@
 
       /* Navbar right di mobile */
       .navbar-right {
-        width: 100%;
-        justify-content: space-between;
-        margin-top: 15px;
-        order: 3;
+        display: none; /* Sembunyikan di mobile */
       }
 
-      .search-wrapper {
-        flex: 1;
-        max-width: 200px;
+      /* Elemen pencarian dan tombol daftar di dalam menu mobile */
+      .mobile-nav-actions {
+        display: flex;
       }
 
       /* Overlay gelap saat menu terbuka */
@@ -565,26 +696,114 @@
         display: block;
       }
 
+      /* Hero Section Adjustments */
       .hero-section {
-        height: 300px;
+        height: 500px;
+      }
+
+      .overlay {
+        width: 500px;
+        left: 80px;
+        top: 350px;
+      }
+
+      .content-box {
+        width: 500px;
+        left: 80px;
+        top: 396px;
+      }
+
+      .vertical-line {
+        left: 110px;
+        top: 350px;
+      }
+
+      .text-content {
+        left: 130px;
+        top: 430px;
+      }
+
+      .cta-button {
+        left: 400px;
+        top: 440px;
+      }
+    }
+
+    /* 📱 RESPONSIVE - Tablet & Mobile */
+    @media (max-width: 1100px) {
+      .custom-navbar {
+        padding: 0 40px;
+        justify-content: space-between;
+      }
+      
+      .navbar-right {
+        gap: 5px;
+      }
+      
+      .search-wrapper {
+        width: 200px;
+      }
+
+      .nav {
+        gap: 30px;
+      }
+
+      .hero-section {
+        height: 400px;
       }
 
       .hero-banner {
-        left: 15px;
-        bottom: 15px;
-        max-width: 300px;
-        padding: 12px 16px;
+        left: 20px;
+        bottom: 20px;
+        max-width: 400px;
+        padding: 15px 20px;
       }
 
       .hero-banner h2 {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .hero-stat {
-        right: 15px;
-        bottom: 15px;
-        font-size: 14px;
-        padding: 6px 12px;
+        right: 20px;
+        bottom: 20px;
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        height: 350px;
+      }
+
+      .overlay {
+        width: 400px;
+        left: 50px;
+        top: 250px;
+      }
+
+      .content-box {
+        width: 400px;
+        left: 50px;
+        top: 296px;
+      }
+
+      .vertical-line {
+        left: 80px;
+        top: 250px;
+      }
+
+      .text-content {
+        left: 100px;
+        top: 320px;
+        font-size: 18px;
+      }
+
+      .cta-button {
+        left: 320px;
+        top: 330px;
+        width: 180px;
+        height: 40px;
       }
     }
 
@@ -593,8 +812,8 @@
         padding: 15px 20px;
       }
 
-      .logo {
-        font-size: 24px;
+      .logo-text {
+        font-size: 20px;
       }
 
       .search-wrapper {
@@ -632,7 +851,40 @@
       }
 
       .hero-section {
-        height: 250px;
+        height: 300px;
+      }
+
+      .overlay {
+        width: 300px;
+        left: 20px;
+        top: 180px;
+      }
+
+      .content-box {
+        width: 300px;
+        left: 20px;
+        top: 226px;
+      }
+
+      .vertical-line {
+        left: 50px;
+        top: 180px;
+        height: 120px;
+      }
+
+      .text-content {
+        left: 70px;
+        top: 240px;
+        font-size: 16px;
+        width: 200px;
+      }
+
+      .cta-button {
+        left: 220px;
+        top: 250px;
+        width: 150px;
+        height: 35px;
+        font-size: 12px;
       }
 
       .hero-banner {
@@ -653,133 +905,11 @@
         padding: 4px 8px;
       }
     }
-
-    /* ====================== HUBUNGI KAMI SECTION ====================== */
-.hubungi-section {
-  background: #fff;
-  padding: 80px 100px;
-  text-align: center;
-  border-top: 1px solid #eee;
-}
-
-.hubungi-section h2 {
-  font-size: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.hubungi-section p {
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 28px;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-.hubungi-section .btn {
-  border-radius: 25px;
-  padding: 10px 35px;
-  font-weight: 500;
-  margin: 10px;
-}
-
-/* Button lokasi dan kirim */
-.btn-lokasi {
-  width: 200px;
-  height: 45px;
-  background: linear-gradient(90deg, #46074E 0%, #197BD0 80%);
-  color: #FFFFFF;
-  border: none;
-  border-radius: 22.5px;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 18px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Efek hover lembut */
-.btn-lokasi:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
-
-.btn-kirim {
-  width: 200px;
-  height: 45px;
-  border-radius: 22.5px;
-  background: transparent;
-  border: 1px solid transparent;
-  background-image: linear-gradient(white, white),
-                    linear-gradient(90deg, #46074E 0%, #197BD0 80%);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  color: #336195;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 18px;
-  text-align: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Hover efek halus */
-.btn-kirim:hover {
-  background-image: linear-gradient(90deg, #46074E 0%, #197BD0 80%);
-  color: #fff;
-  transform: translateY(-2px);
-}
   </style>
 </head>
 <body>
 
-  <!-- Overlay untuk mobile menu -->
-  <div class="overlay" id="overlay"></div>
-
-  <!-- 🔹 Navbar -->
-  <nav class="custom-navbar">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="images/inaklug.png" alt="logo klug">
-    </div>
-
-    <!-- Hamburger Menu Button -->
-    <button class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Menu Navigasi -->
-    <ul class="nav" id="navMenu">
-      <li class="nav-item"><a class="nav-link active" href="indexKeempat.html">Home</a></li>
-      <li class="nav-item"><a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a></li>
-      <li class="nav-item"><a class="nav-link {{ Request::is('layanan') ? 'active' : '' }}" href="{{ route('layanan') }}">Layanan Kami</a></li>
-      <li class="nav-item"><a class="nav-link {{ Request::is('artikel') ? 'active' : '' }}" href="{{ route('artikel') }}">Artikel</a></li>
-      <li class="nav-item"><a class="nav-link {{ Request::is('hubungi') ? 'active' : '' }}" href="{{ route('hubungi') }}">Hubungi Kami</a></li>
-    </ul>
-
-    <!-- Pencarian + Tombol -->
-    <div class="navbar-right">
-      <!-- Search Bar dengan Material Icons -->
-      <div class="search-wrapper">
-        <span class="material-icons search-icon">search</span>
-        <input type="text" class="search-input" placeholder="Ketik pencarian">
-      </div>
-      <button class="btn-daftar">DAFTAR ON-LINE</button>
-    </div>
-  </nav>
-
+  @include('pemisahan.header')
   <!-- Hero Section with Banner Overlay -->
   <div class="hero-section">
         <img src="{{ asset('images/aset1.png') }}" alt="Historic Building" class="hero-image">
@@ -1002,77 +1132,8 @@
     </section>
 
   </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    // Menandai link navigasi aktif berdasarkan URL (tanpa storage)
-    (function () {
-      const LINKS_SELECTOR = '.nav-link';
-      const norm = s => (s || '').replace(/^[.\/]+/, '');
-
-      function setActiveByLocation() {
-        const path = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll(LINKS_SELECTOR).forEach(l => {
-          const lh = norm(l.getAttribute('href') || '');
-          const lLast = lh.split('/').pop();
-          const isMatch = (lh === path) || (lLast === path) || (path.endsWith(lLast));
-          l.classList.toggle('active', isMatch);
-        });
-      }
-
-      document.addEventListener('DOMContentLoaded', setActiveByLocation);
-    })();
-
-    // Hamburger Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    const overlay = document.getElementById('overlay');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Toggle menu saat hamburger diklik
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      overlay.classList.toggle('active');
-      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
-    });
-
-    // Tutup menu saat overlay diklik
-    overlay.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    });
-
-    // Tutup menu saat link diklik
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      });
-    });
-
-    // Tutup menu saat resize ke desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 992) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      }
-    
-    });
-  </script>
-
   <!-- Footer -->
-  <footer class="site-footer">
-    <p class="copyright">Copyright © 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang</p>
-  </footer>
+  @include('pemisahan.footer')
 
 </body>
 </html>

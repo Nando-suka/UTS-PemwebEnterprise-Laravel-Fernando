@@ -49,15 +49,26 @@
     }
 
     /* 🔠 Logo */
-    .logo {
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 1001;
+    }
+
+    .logo-img {
+      width: 77px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .logo-text {
       color: white;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: bold;
       font-family: 'Ubuntu', sans-serif;
       text-transform: uppercase;
       letter-spacing: 1px;
-      z-index: 1001;
-      flex-shrink: 0;
     }
 
     /* 🔗 Menu Navigasi */
@@ -75,12 +86,13 @@
     .nav-link {
       color: white !important;
       font-family: 'Ubuntu', sans-serif;
-      font-size: 13px;
+      font-size: 16px;
       text-transform: capitalize;
       transition: all 0.2s ease-in-out;
       text-decoration: none;
       display: block;
       padding: 5px 0;
+      border-bottom: 2px solid transparent;
     }
 
     .nav-link:hover {
@@ -857,40 +869,8 @@
 </head>
 <body>
 
-  <!-- Overlay untuk mobile menu -->
-  <div class="overlay" id="overlay"></div>
-
-  <!-- 🔹 Navbar -->
-  <nav class="custom-navbar">
-    <!-- Logo -->
-    <div class="logo">klug</div>
-
-    <!-- Hamburger Menu Button -->
-    <button class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Menu Navigasi -->
-    <ul class="nav" id="navMenu">
-        <li class="nav-item"><a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a></li>
-        <li class="nav-item"><a class="nav-link { Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a></li>
-        <li class="nav-item"><a class="nav-link  {{ Request::is('layanan') ? 'active' : '' }}" href="{{ route('layanan') }}">Layanan Kami</a></li>
-        <li class="nav-item"><a class="nav-link {{ Request::is('artikel') ? 'active' : '' }}" href="{{ route('artikel') }}">Artikel</a></li>
-        <li class="nav-item"><a class="nav-link active" href="{{ route('hubungi') }}">Hubungi Kami</a></li>
-    </ul>
-
-    <!-- 🔍 Pencarian + Tombol -->
-    <div class="navbar-right">
-      <!-- Search Bar dengan Material Icons -->
-      <div class="search-wrapper">
-        <span class="material-icons search-icon">search</span>
-        <input type="text" class="search-input" placeholder="Ketik pencarian">
-      </div>
-      <button class="btn-daftar">DAFTAR ON-LINE</button>
-    </div>
-  </nav>
+  <!-- header-->
+  @include('pemisahan.header')
 
   <!-- Hero Section with Banner Overlay -->
   <div class="hero-section">
@@ -999,45 +979,6 @@
     });
   </script>
   <!-- Footer -->
-  <footer class="site-footer">
-    <p class="copyright">Copyright © 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang</p>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    // Hamburger Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    const overlay = document.getElementById('overlay');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Toggle menu saat hamburger diklik
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      overlay.classList.toggle('active');
-      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
-    });
-
-    // Tutup menu saat overlay diklik
-    overlay.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    });
-
-    // Tutup menu saat link diklik
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      });
-    });
-  </script>
+  @include('pemisahan.footer')
 </body>
 </html>
